@@ -128,24 +128,25 @@
   <dialog id="setupDialog" class="game-dialog setup-dialog">
     <p class="eyebrow">GAME SETUP</p>
     <h2>Who is building today?</h2>
-    <p class="setup-copy">Play together on one device or create a live game across multiple computers.</p>
-    <div class="mode-tabs" role="tablist">
-      <button class="active" id="localModeButton" role="tab">Same device</button>
-      <button id="onlineModeButton" role="tab">Different devices</button>
+    <p class="setup-copy">Choose a solo challenge, pass-and-play, or a live online game.</p>
+    <div class="mode-tabs" role="tablist" aria-label="Game mode">
+      <button class="active" id="soloModeButton" role="tab">Solo</button>
+      <button id="localModeButton" role="tab">Local Multiplayer</button>
+      <button id="onlineModeButton" role="tab">Online Multiplayer</button>
     </div>
     <div id="localSetupPanel">
-      <label class="player-count-label">NUMBER OF PLAYERS
-        <select id="playerCount"><option value="1">1 player · play against Chaos Monkey</option><option value="2" selected>2 players</option><option value="3">3 players</option><option value="4">4 players</option></select>
+      <label class="player-count-label" id="playerCountLabel">NUMBER OF PLAYERS
+        <select id="playerCount"><option value="1" hidden>1 player</option><option value="2">2 players</option><option value="3">3 players</option><option value="4">4 players</option></select>
       </label>
-      <div class="setup-names-heading"><span>COMPANY NAMES</span><button id="shuffleNamesButton" type="button">↻ New suggestions</button></div>
+      <div class="setup-names-heading"><span id="companyNamesLabel">YOUR COMPANY</span><button id="shuffleNamesButton" type="button">↻ New suggestions</button></div>
       <div class="player-inputs" id="playerInputs"></div>
-      <label class="chaos-toggle"><input id="localChaosToggle" type="checkbox" checked /><span></span><p><b>Add Chaos Monkey event cards</b><small>Extra market events; the solo opponent plays either way.</small></p></label>
-      <button class="primary-button" id="startGameButton">Start local game</button>
+      <label class="chaos-toggle"><input id="localChaosToggle" type="checkbox" checked /><span></span><p><b id="chaosToggleTitle">Add Chaos Monkey event cards</b><small id="chaosToggleDescription">Extra market events; the solo rival plays either way.</small></p></label>
+      <button class="primary-button" id="startGameButton">Play against Chaos Monkey</button>
     </div>
     <div id="onlineSetupPanel" hidden>
       <label class="online-name-label">YOUR COMPANY NAME<input id="onlineCompanyName" maxlength="28" /></label>
       <div class="online-actions">
-        <div><b>Create a game</b><p>Choose the table size and share an invite code.</p><select id="onlinePlayerCount"><option value="1">1 player · play against Chaos Monkey</option><option value="2" selected>2 players</option><option value="3">3 players</option><option value="4">4 players</option></select><label class="mini-check"><input id="onlineChaosToggle" type="checkbox" checked /> Add event cards</label><button class="primary-button" id="createOnlineButton">Create game</button></div>
+        <div><b>Create a game</b><p>Choose the table size and share an invite code.</p><select id="onlinePlayerCount"><option value="2" selected>2 players</option><option value="3">3 players</option><option value="4">4 players</option></select><label class="mini-check"><input id="onlineChaosToggle" type="checkbox" checked /> Add event cards</label><button class="primary-button" id="createOnlineButton">Create game</button></div>
         <div><b>Join a game</b><p>Enter the five-letter code from the host.</p><input id="joinCodeInput" maxlength="5" placeholder="ABCDE" /><button class="secondary-button" id="joinOnlineButton">Join game</button></div>
       </div>
       <p class="quick-note" id="quickNote">Online play is available on the Shopify Quick deployment.</p>

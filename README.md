@@ -10,6 +10,14 @@ python3 -m http.server 4174 --directory prototype/shopify-board-game-engine
 
 Then open [http://localhost:4174](http://localhost:4174).
 
+## Game modes
+
+The opening setup offers three explicit choices:
+
+- **Solo** — play against the Chaos Monkey.
+- **Local Multiplayer** — pass-and-play for 2–4 founders on one device.
+- **Online Multiplayer** — create or join a live 2–4 founder game.
+
 ## Rules
 
 - The first company starts with **$5**; each later company starts with **$1 more**. Every company also has a named Founder and one permanent Founder skill.

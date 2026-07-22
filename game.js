@@ -536,13 +536,13 @@ function renderPlayerInputs(useSuggestions = false) {
 }
 
 function openSetup() {
-  $("#playerCount").value = "2";
+  $("#playerCount").value = "1";
   $("#onlinePlayerCount").value = "2";
   renderPlayerInputs(true);
   $("#onlineCompanyName").value = suggestedNames(1)[0];
   const invitedCode = new URLSearchParams(location.search).get("game");
   if (invitedCode) $("#joinCodeInput").value = invitedCode.toUpperCase();
-  setSetupMode(invitedCode || location.hostname.endsWith(".quick.shopify.io") ? "online" : "local");
+  setSetupMode(invitedCode ? "online" : "solo");
   if (!$("#setupDialog").open) $("#setupDialog").showModal();
 }
 
@@ -596,13 +596,22 @@ function generateCode() {
 }
 
 function setSetupMode(mode) {
+  const solo = mode === "solo";
+  const local = mode === "local";
   const online = mode === "online";
-  $("#localModeButton").classList.toggle("active", !online);
-  $("#onlineModeButton").classList.toggle("active", online);
-  $("#localModeButton").setAttribute("aria-selected", String(!online));
-  $("#onlineModeButton").setAttribute("aria-selected", String(online));
+  [["soloModeButton", solo], ["localModeButton", local], ["onlineModeButton", online]].forEach(([id, active]) => {
+    $(`#${id}`).classList.toggle("active", active);
+    $(`#${id}`).setAttribute("aria-selected", String(active));
+  });
   $("#localSetupPanel").hidden = online;
   $("#onlineSetupPanel").hidden = !online;
+  if (solo) $("#playerCount").value = "1";
+  if (local && Number($("#playerCount").value) < 2) $("#playerCount").value = "2";
+  $("#playerCountLabel").hidden = solo;
+  $("#companyNamesLabel").textContent = solo ? "YOUR COMPANY" : "COMPANY NAMES";
+  $("#startGameButton").textContent = solo ? "Play against Chaos Monkey" : "Start local multiplayer";
+  $("#chaosToggleDescription").textContent = solo ? "Extra market events; the solo rival plays either way." : "Add unpredictable events to the Talent Market.";
+  if (!online) renderPlayerInputs();
   if (online && !$("#onlineCompanyName").value) $("#onlineCompanyName").value = suggestedNames(1)[0];
 }
 
@@ -762,6 +771,7 @@ $("#newGameButton").addEventListener("click", () => { if (confirm("Set up a new 
 $("#playAgainButton").addEventListener("click", () => { $("#winDialog").close(); openSetup(); });
 $("#playerCount").addEventListener("change", () => renderPlayerInputs());
 $("#shuffleNamesButton").addEventListener("click", () => renderPlayerInputs(true));
+$("#soloModeButton").addEventListener("click", () => setSetupMode("solo"));
 $("#localModeButton").addEventListener("click", () => setSetupMode("local"));
 $("#onlineModeButton").addEventListener("click", () => setSetupMode("online"));
 $("#startGameButton").addEventListener("click", startConfiguredGame);

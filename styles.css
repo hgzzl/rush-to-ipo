@@ -179,10 +179,11 @@ main { overflow: hidden; }
 .dialog-close { position: absolute; top: 14px; right: 14px; width: 32px; height: 32px; border: 0; border-radius: 50%; background: #efede6; cursor: pointer; font-size: 20px; }
 .rules-dialog h2, .win-dialog h2, .setup-dialog h2 { margin: 8px 0 26px; font-size: 28px; letter-spacing: -.045em; }
 .setup-copy { margin: -15px 0 24px; color: var(--muted); font-size: 12px; line-height: 1.55; }
-.mode-tabs { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 24px; padding: 4px; border-radius: 8px; background: #ebe8df; }
+.mode-tabs { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 24px; padding: 4px; border-radius: 8px; background: #ebe8df; }
 .mode-tabs button { padding: 9px; border: 0; border-radius: 5px; background: transparent; color: var(--muted); cursor: pointer; font-size: 11px; font-weight: 700; }
 .mode-tabs button.active { background: white; color: var(--ink); box-shadow: 0 2px 7px rgba(28,42,34,.09); }
 .player-count-label { display: grid; grid-template-columns: 1fr 150px; align-items: center; margin-bottom: 24px; font: 600 9px "DM Mono"; letter-spacing: .1em; }
+.player-count-label[hidden] { display: none; }
 .player-count-label select { padding: 10px; border: 1px solid var(--line); border-radius: 6px; background: white; font: 600 11px Manrope; }
 .setup-names-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9px; color: var(--muted); font: 600 8px "DM Mono"; letter-spacing: .1em; }
 .setup-names-heading button { border: 0; background: transparent; color: var(--green); cursor: pointer; font: 700 9px Manrope; }
@@ -316,6 +317,7 @@ main { overflow: hidden; }
   .skill-total strong { font-size: 23px; }
   .strengths { align-items: start; flex-direction: column; }
   .strength-list { width: 100%; }
+  .mode-tabs button { padding-inline: 4px; font-size: 9px; }
   .online-actions { grid-template-columns: 1fr; }
   .discard-grid, .upkeep-cards { grid-template-columns: 1fr; }
   .requirement-line { grid-template-columns: 1fr 45px 45px; }
