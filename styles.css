@@ -80,6 +80,9 @@ main { overflow: hidden; }
 .player-skills small { color: #626e67; font: 700 10px "DM Mono"; }
 .player-score { grid-column: 2 / 4; color: #526159; font: 700 9px "DM Mono"; letter-spacing: .02em; }
 .player-chip .player-dot { grid-row: 1 / 4; }
+.monkey-chip { align-content: center; border-color: #dfb18f; background: #fff4e9; }
+.monkey-chip > strong { grid-column: 2; color: var(--orange); font: 700 13px "DM Mono"; }
+.monkey-chip > small { grid-column: 2 / 4; color: var(--muted); font: 600 8px "DM Mono"; text-transform: uppercase; }
 
 .board-section, .workspace { padding: 46px clamp(22px, 5vw, 76px) 52px; }
 .milestones-section { background: #ece9df; border-bottom: 1px solid var(--line); }
@@ -143,10 +146,13 @@ main { overflow: hidden; }
 .workspace { background: #e2e9e4; border-top: 1px solid #cad4cc; min-height: 275px; }
 .hand-heading h2 span { margin-left: 7px; font: 500 9px "DM Mono"; color: var(--muted); letter-spacing: .08em; }
 .skill-bank { position: fixed; z-index: 15; left: clamp(12px, 3vw, 46px); right: clamp(12px, 3vw, 46px); bottom: 9px; display: grid; grid-template-columns: 1.35fr repeat(5, 1fr); gap: 1px; margin: 0; overflow: hidden; border: 1px solid #9eaea2; border-radius: 9px; background: #bdcbc1; box-shadow: 0 9px 30px rgba(20,38,29,.2); }
-.skill-bank-title, .skill-total { min-height: 91px; padding: 14px 16px; background: var(--white); }
+.skill-bank-title, .skill-total { min-height: 105px; padding: 12px 16px; background: var(--white); }
 .skill-bank-title { display: flex; flex-direction: column; justify-content: center; }
 .skill-bank-title .eyebrow { margin-bottom: 5px; }
-.skill-bank-title b { font-size: 14px; line-height: 1.25; letter-spacing: -.015em; }
+.skill-bank-title b { font-size: 13px; line-height: 1.2; letter-spacing: -.015em; }
+.bank-economy { display: flex; gap: 6px; margin-top: 9px; }
+.bank-economy span { flex: 1; padding: 6px 7px; border-radius: 4px; background: #eef1ec; color: var(--muted); font: 600 6px "DM Mono"; letter-spacing: .06em; }
+.bank-economy strong { display: block; margin-top: 2px; color: var(--green); font-size: 12px; }
 .skill-total { position: relative; display: grid; grid-template-columns: 1fr auto; align-content: center; border-top: 5px solid var(--stat-color); }
 .skill-total > span { display: flex; align-items: center; gap: 6px; color: #59665f; font: 700 9px "DM Mono"; text-transform: uppercase; }
 .skill-total > span .skill-icon { width: 22px; height: 22px; padding: 4px; border-radius: 50%; background: var(--stat-color); color: white; stroke-width: 2.1; }
@@ -300,9 +306,11 @@ main { overflow: hidden; }
   .milestone-row, .market-row { display: flex; overflow-x: auto; padding: 5px 5px 20px; scroll-snap-type: x mandatory; }
   .milestone-row .game-card { flex: 0 0 270px; scroll-snap-align: start; }
   .market-row .game-card { flex: 0 0 225px; scroll-snap-align: start; }
-  body { padding-bottom: 83px; }
-  .skill-bank { left: 6px; right: 6px; bottom: 5px; grid-template-columns: repeat(5, minmax(68px, 1fr)); overflow-x: auto; }
-  .skill-bank-title { display: none; }
+  body { padding-bottom: 105px; }
+  .skill-bank { left: 6px; right: 6px; bottom: 5px; grid-template-columns: 150px repeat(5, minmax(68px, 1fr)); overflow-x: auto; }
+  .skill-bank-title { min-width: 150px; padding: 9px; }
+  .skill-bank-title > b { display: none; }
+  .bank-economy { margin-top: 5px; }
   .skill-total { min-width: 78px; padding: 10px 8px; }
   .skill-total > span { font-size: 6px; }
   .skill-total strong { font-size: 23px; }

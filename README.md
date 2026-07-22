@@ -19,13 +19,15 @@ Then open [http://localhost:4174](http://localhost:4174).
 - At the start of a turn, pay the full upkeep or discard agencies/staff until the remaining cost is affordable.
 - A loan provides **$5 cash** and creates **$8 debt**. Repaying $8 uses a turn.
 - Cards form a persistent engine and are **not discarded** when completing orders or milestones.
-- Five briefs are available. Their listed skill requirements range from 3–6 points.
+- Five briefs are available. Each requires **3–8 total skill points**, split across its listed skills.
 - Reach **20 reputation with no outstanding loans** to win.
 - In multiplayer, reaching the goal triggers the final stretch: finish the current round and play one final round. The eligible company with the most reputation wins.
 
-## Solo leaderboard
+## Play against the Chaos Monkey
 
-On Shopify Quick, successful solo games are recorded in `quick.db`. The leaderboard ranks the ten fastest debt-free wins and shows completion time and turn count.
+A one-player game is a race against market disruption. After every player turn, the Chaos Monkey takes one talent card from the market. On a 1-in-5 roll, it steals an open brief instead. Removed cards are immediately replaced. Optional Chaos Monkey event cards can be enabled separately.
+
+On Shopify Quick, successful games against the monkey are recorded in `quick.db`. The leaderboard ranks the ten fastest debt-free wins and shows completion time and turn count.
 
 ## Online play
 

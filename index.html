@@ -75,7 +75,7 @@
     <section class="board-section milestones-section">
       <div class="section-heading">
         <div><p class="eyebrow">MAKE YOUR MARK</p><h2>Orders & milestones</h2></div>
-        <p>Build a lasting engine. Completed briefs never consume your cards.</p>
+        <p>Briefs cost 3–8 total skill. Completed briefs never consume your cards.</p>
       </div>
       <div class="card-row milestone-row" id="milestoneRow" aria-live="polite"></div>
     </section>
@@ -118,9 +118,9 @@
       <li><span>02</span><div><b>Choose how you scale.</b><p>Agencies and staff provide 2–3 skill points but cost $1 each at the start of every turn. Shopify tools provide one permanent skill with no upkeep.</p></div></li>
       <li><span>03</span><div><b>Pay—or make cuts.</b><p>At the start of your turn, pay the full upkeep or discard agencies and staff until you can afford it.</p></div></li>
       <li><span>04</span><div><b>Borrow carefully.</b><p>A loan gives you $5 immediately but creates $8 of debt. Repaying $8 uses your turn. You cannot win while any loan remains.</p></div></li>
-      <li><span>05</span><div><b>Your engine is permanent.</b><p>Completing orders and milestones earns cash and reputation without discarding cards. Open briefs require 3–6 points in each listed skill.</p></div></li>
+      <li><span>05</span><div><b>Your engine is permanent.</b><p>Completing orders and milestones earns cash and reputation without discarding cards. Briefs require 3–8 total skill points, split across the listed skills.</p></div></li>
       <li><span>06</span><div><b>Win with 20 reputation and no debt.</b><p>Solo games finish immediately. Multiplayer games finish the current round, play one final round, and award the win to the most reputable debt-free company.</p></div></li>
-      <li><span>07</span><div><b>Expect chaos—if invited.</b><p>Chaos Monkey cards still resolve whenever they appear during a normal market refill.</p></div></li>
+      <li><span>07</span><div><b>Play against the Chaos Monkey solo.</b><p>After every solo turn, the monkey takes one talent card. It has a 1-in-5 chance to steal an open brief instead. Optional event cards add even more chaos.</p></div></li>
     </ol>
     <button class="primary-button" id="rulesStart">Let's build</button>
   </dialog>
@@ -135,17 +135,17 @@
     </div>
     <div id="localSetupPanel">
       <label class="player-count-label">NUMBER OF PLAYERS
-        <select id="playerCount"><option value="1">1 player · solo</option><option value="2" selected>2 players</option><option value="3">3 players</option><option value="4">4 players</option></select>
+        <select id="playerCount"><option value="1">1 player · play against Chaos Monkey</option><option value="2" selected>2 players</option><option value="3">3 players</option><option value="4">4 players</option></select>
       </label>
       <div class="setup-names-heading"><span>COMPANY NAMES</span><button id="shuffleNamesButton" type="button">↻ New suggestions</button></div>
       <div class="player-inputs" id="playerInputs"></div>
-      <label class="chaos-toggle"><input id="localChaosToggle" type="checkbox" checked /><span></span><p><b>Invite the Chaos Monkey</b><small>Add unpredictable market events.</small></p></label>
+      <label class="chaos-toggle"><input id="localChaosToggle" type="checkbox" checked /><span></span><p><b>Add Chaos Monkey event cards</b><small>Extra market events; the solo opponent plays either way.</small></p></label>
       <button class="primary-button" id="startGameButton">Start local game</button>
     </div>
     <div id="onlineSetupPanel" hidden>
       <label class="online-name-label">YOUR COMPANY NAME<input id="onlineCompanyName" maxlength="28" /></label>
       <div class="online-actions">
-        <div><b>Create a game</b><p>Choose the table size and share an invite code.</p><select id="onlinePlayerCount"><option value="1">1 player · solo</option><option value="2" selected>2 players</option><option value="3">3 players</option><option value="4">4 players</option></select><label class="mini-check"><input id="onlineChaosToggle" type="checkbox" checked /> Chaos Monkey on</label><button class="primary-button" id="createOnlineButton">Create game</button></div>
+        <div><b>Create a game</b><p>Choose the table size and share an invite code.</p><select id="onlinePlayerCount"><option value="1">1 player · play against Chaos Monkey</option><option value="2" selected>2 players</option><option value="3">3 players</option><option value="4">4 players</option></select><label class="mini-check"><input id="onlineChaosToggle" type="checkbox" checked /> Add event cards</label><button class="primary-button" id="createOnlineButton">Create game</button></div>
         <div><b>Join a game</b><p>Enter the five-letter code from the host.</p><input id="joinCodeInput" maxlength="5" placeholder="ABCDE" /><button class="secondary-button" id="joinOnlineButton">Join game</button></div>
       </div>
       <p class="quick-note" id="quickNote">Online play is available on the Shopify Quick deployment.</p>
@@ -173,7 +173,7 @@
 
   <dialog id="leaderboardDialog" class="game-dialog leaderboard-dialog">
     <button class="dialog-close" id="leaderboardClose" aria-label="Close">×</button>
-    <p class="eyebrow">SOLO CHALLENGE</p><h2>Fastest founders</h2><div id="leaderboardList"></div>
+    <p class="eyebrow">PLAY AGAINST CHAOS MONKEY</p><h2>Fastest founders</h2><div id="leaderboardList"></div>
   </dialog>
 
   <dialog id="winDialog" class="game-dialog win-dialog">
@@ -181,7 +181,7 @@
     <div class="win-mark">✦</div>
     <h2 id="winnerHeading"><span id="winnerName">Day One Goods</span> wins!</h2>
     <p><b id="finalScore">20 reputation</b> after <b id="finalTurns">12 total turns</b>.</p>
-    <button class="secondary-button" id="viewLeaderboardButton">View solo leaderboard</button>
+    <button class="secondary-button" id="viewLeaderboardButton">View Chaos Monkey leaderboard</button>
     <button class="primary-button" id="playAgainButton">Play again</button>
   </dialog>
 

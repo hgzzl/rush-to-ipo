@@ -7,14 +7,14 @@ const STAT_META = {
 };
 
 const talentDeck = [
-  ["Launch Lab", "Agency", "agency", { brand: 3, production: 1 }, "#f0aac2"],
-  ["Northstar Creative", "Agency", "agency", { brand: 2, operations: 2 }, "#efb6ca"],
-  ["Conversion Studio", "Agency", "agency", { brand: 2, fulfillment: 1, operations: 1 }, "#e6a5bc"],
-  ["Supply Chain Partners", "Agency", "agency", { production: 2, fulfillment: 2 }, "#eac578"],
-  ["Growth Collective", "Agency", "agency", { brand: 2, staffing: 2 }, "#e9afcc"],
-  ["Product Design House", "Agency", "agency", { production: 3, brand: 1 }, "#efbd8f"],
-  ["Operations Consultancy", "Agency", "agency", { operations: 3, staffing: 1 }, "#9fcbb0"],
-  ["Logistics Network", "Agency", "agency", { fulfillment: 3, operations: 1 }, "#a7c7ea"],
+  ["Launch Lab", "Agency", "agency", { brand: 2, production: 1 }, "#f0aac2"],
+  ["Northstar Creative", "Agency", "agency", { brand: 2, operations: 1 }, "#efb6ca"],
+  ["Conversion Studio", "Agency", "agency", { brand: 1, fulfillment: 1, operations: 1 }, "#e6a5bc"],
+  ["Supply Chain Partners", "Agency", "agency", { production: 2, fulfillment: 1 }, "#eac578"],
+  ["Growth Collective", "Agency", "agency", { brand: 2, staffing: 1 }, "#e9afcc"],
+  ["Product Design House", "Agency", "agency", { production: 2, brand: 1 }, "#efbd8f"],
+  ["Operations Consultancy", "Agency", "agency", { operations: 2, staffing: 1 }, "#9fcbb0"],
+  ["Logistics Network", "Agency", "agency", { fulfillment: 2, operations: 1 }, "#a7c7ea"],
   ["Brand Director", "Staffing", "staffing", { brand: 3 }, "#dc83a4"],
   ["Fulfillment Lead", "Staffing", "staffing", { fulfillment: 3 }, "#729be6"],
   ["Production Manager", "Staffing", "staffing", { production: 3 }, "#e2b44e"],
@@ -34,21 +34,21 @@ const talentDeck = [
 ].map(([name, kind, type, stats, color], id) => ({ id: `t${id}`, name, kind, type, stats, color }));
 
 const milestoneDeck = [
-  ["First profitable order", "Order", { brand: 3, production: 3 }, { cash: 5 }, 2, "#dbeaa2"],
-  ["Weekend market sellout", "Order", { brand: 4, fulfillment: 3 }, { cash: 6 }, 3, "#f2c0a7"],
-  ["Reliable supplier network", "Milestone", { production: 5, operations: 3 }, { cash: 7 }, 3, "#efd48e"],
-  ["A team that scales", "Milestone", { staffing: 5, operations: 3 }, { cash: 6 }, 3, "#cdbbe8"],
-  ["Retailer pilot", "Order", { production: 4, fulfillment: 4 }, { cash: 8 }, 4, "#afd0ed"],
-  ["Repeat customer engine", "Milestone", { brand: 5, fulfillment: 3 }, { cash: 7 }, 4, "#eeb6ca"],
-  ["Two-day dispatch", "Milestone", { fulfillment: 6, operations: 4 }, { cash: 9 }, 5, "#b6d2ef"],
-  ["Operational excellence", "Milestone", { operations: 6, staffing: 4 }, { cash: 8 }, 5, "#add8bf"],
-  ["Holiday rush", "Order", { production: 5, fulfillment: 5, staffing: 3 }, { cash: 11 }, 6, "#f0c891"],
-  ["National press feature", "Order", { brand: 6, production: 4 }, { cash: 9 }, 5, "#f0b2c1"],
-  ["10,000th order", "Milestone", { brand: 4, fulfillment: 6, operations: 5 }, { cash: 12 }, 7, "#cae49c"],
-  ["Flagship collaboration", "Order", { brand: 6, production: 6, staffing: 4 }, { cash: 13 }, 7, "#efb99f"],
-  ["International launch", "Milestone", { brand: 5, fulfillment: 5, operations: 5 }, { cash: 12 }, 7, "#b5d7cf"],
-  ["BFCM record", "Order", { production: 6, fulfillment: 6, staffing: 5 }, { cash: 15 }, 8, "#e7c37b"],
-  ["Category leader", "Milestone", { brand: 6, production: 5, operations: 5 }, { cash: 14 }, 8, "#d4b1df"],
+  ["First profitable order", "Order", { brand: 2, production: 1 }, { cash: 3 }, 1, "#dbeaa2"],
+  ["Weekend market sellout", "Order", { brand: 1, fulfillment: 2 }, { cash: 3 }, 1, "#f2c0a7"],
+  ["Reliable supplier network", "Milestone", { production: 2, operations: 2 }, { cash: 4 }, 2, "#efd48e"],
+  ["A team that scales", "Milestone", { staffing: 2, operations: 2 }, { cash: 4 }, 2, "#cdbbe8"],
+  ["Retailer pilot", "Order", { production: 2, fulfillment: 3 }, { cash: 5 }, 2, "#afd0ed"],
+  ["Repeat customer engine", "Milestone", { brand: 3, fulfillment: 2 }, { cash: 5 }, 2, "#eeb6ca"],
+  ["Two-day dispatch", "Milestone", { fulfillment: 3, operations: 3 }, { cash: 6 }, 3, "#b6d2ef"],
+  ["Operational excellence", "Milestone", { operations: 3, staffing: 3 }, { cash: 6 }, 3, "#add8bf"],
+  ["Holiday rush", "Order", { production: 2, fulfillment: 2, staffing: 2 }, { cash: 7 }, 3, "#f0c891"],
+  ["National press feature", "Order", { brand: 4, production: 3 }, { cash: 7 }, 3, "#f0b2c1"],
+  ["10,000th order", "Milestone", { brand: 2, fulfillment: 3, operations: 2 }, { cash: 8 }, 4, "#cae49c"],
+  ["Flagship collaboration", "Order", { brand: 3, production: 2, staffing: 2 }, { cash: 8 }, 4, "#efb99f"],
+  ["International launch", "Milestone", { brand: 3, fulfillment: 2, operations: 3 }, { cash: 9 }, 4, "#b5d7cf"],
+  ["BFCM record", "Order", { production: 3, fulfillment: 3, staffing: 2 }, { cash: 10 }, 5, "#e7c37b"],
+  ["Category leader", "Milestone", { brand: 3, production: 2, operations: 3 }, { cash: 10 }, 5, "#d4b1df"],
 ].map(([name, kind, requirements, reward, points, color], id) => ({ id: `m${id}`, name, kind, requirements, reward, points, color }));
 
 const WIN_SCORE = 20;
@@ -143,7 +143,7 @@ function totalSkills(player) {
 }
 
 function renderPlayers() {
-  $("#playerStrip").innerHTML = state.players.map((player, index) => {
+  const founders = state.players.map((player, index) => {
     const totals = totalSkills(player);
     return `<div class="player-chip ${index === state.currentPlayerIndex ? "active" : ""}" style="--player-color:${player.color}">
       <span class="player-dot">${index + 1}</span><p><b>${escapeHtml(player.name)}</b><small>${escapeHtml(player.founderName || player.founder?.name || "Founder")} · +1 ${STAT_META[player.founder?.stat || Object.keys(player.strengths)[0]]?.label}</small></p>
@@ -151,6 +151,8 @@ function renderPlayers() {
       ${index === state.currentPlayerIndex ? "<em>PLAYING</em>" : ""}<strong class="player-score">${player.score} rep · $${player.cash}${player.debt ? ` · owes $${player.debt}` : ""}</strong>
     </div>`;
   }).join("");
+  const monkey = state.players.length === 1 ? `<div class="player-chip monkey-chip" style="--player-color:#ef9b61"><span class="player-dot">🙈</span><p><b>Chaos Monkey</b><small>Takes a market card after every turn</small></p><strong>1 IN 5</strong><small>chance to steal a brief instead</small></div>` : "";
+  $("#playerStrip").innerHTML = founders + monkey;
 }
 
 function renderMarket() {
@@ -166,9 +168,11 @@ function renderMarket() {
 
 function renderMilestones() {
   $("#milestoneRow").innerHTML = state.milestones.map((card, index) => {
+    const requirements = effectiveRequirements(card);
+    const requirementTotal = Object.values(requirements).reduce((sum, value) => sum + value, 0);
     const reward = card.reward.cash ? `$${card.reward.cash} cash` : `+1 permanent ${STAT_META[card.reward.permanent].label}`;
-    return `<button class="game-card milestone-card" data-milestone="${index}" aria-label="Open brief ${card.name}" ${!isMyTurn() || state.pendingDiscards.length ? "disabled" : ""}>
-      <div class="card-top" style="background:${card.color}"><p class="card-kind">${card.kind}</p><span class="card-number">B${String(index + 1).padStart(2, "0")}</span><h3>${card.name}</h3>${cardArtwork(effectiveRequirements(card))}</div>
+    return `<button class="game-card milestone-card" data-milestone="${index}" aria-label="Open brief ${card.name}, ${requirementTotal} total skill" ${!isMyTurn() || state.pendingDiscards.length ? "disabled" : ""}>
+      <div class="card-top" style="background:${card.color}"><p class="card-kind">${card.kind} · ${requirementTotal} skill</p><span class="card-number">B${String(index + 1).padStart(2, "0")}</span><h3>${card.name}</h3>${cardArtwork(effectiveRequirements(card))}</div>
       <div class="card-body">${statGrid(effectiveRequirements(card))}
       <div class="reward"><p>REWARD<strong>${reward}</strong></p><span class="points">+${card.points}</span></div></div>
     </button>`;
@@ -188,7 +192,7 @@ function renderSkillBank() {
   const player = localPlayer() || currentPlayer();
   const cardTotals = {};
   player.hand.forEach(card => Object.entries(card.stats).forEach(([stat, amount]) => cardTotals[stat] = (cardTotals[stat] || 0) + amount));
-  $("#skillBank").innerHTML = `<div class="skill-bank-title"><p class="eyebrow">${escapeHtml(player.name)}</p><b>Skills available for your next brief</b></div>${STAT_ORDER.map(key => {
+  $("#skillBank").innerHTML = `<div class="skill-bank-title"><p class="eyebrow">${escapeHtml(player.name)}</p><b>Skills available for your next brief</b><div class="bank-economy"><span>CASH <strong>$${player.cash}</strong></span><span>CURRENT UPKEEP <strong>$${upkeepCost(player)}</strong></span></div></div>${STAT_ORDER.map(key => {
     const cards = cardTotals[key] || 0;
     const permanent = player.strengths[key] || 0;
     return `<div class="skill-total" style="--stat-color:${STAT_META[key].color}"><span>${skillIcon(key)}${STAT_META[key].label}</span><strong>${cards + permanent}</strong><small>${cards} from cards${permanent ? ` + ${permanent} permanent` : ""}</small></div>`;
@@ -212,10 +216,10 @@ function buildTalentDraw(chaosEnabled) {
 }
 
 function buildMilestoneDraw() {
-  const maxRequirement = card => Math.max(...Object.values(card.requirements));
-  const easy = shuffle(milestoneDeck.filter(card => maxRequirement(card) <= 4));
-  const medium = shuffle(milestoneDeck.filter(card => maxRequirement(card) === 5));
-  const hard = shuffle(milestoneDeck.filter(card => maxRequirement(card) === 6));
+  const totalRequirement = card => Object.values(card.requirements).reduce((sum, value) => sum + value, 0);
+  const easy = shuffle(milestoneDeck.filter(card => totalRequirement(card) <= 4));
+  const medium = shuffle(milestoneDeck.filter(card => totalRequirement(card) >= 5 && totalRequirement(card) <= 6));
+  const hard = shuffle(milestoneDeck.filter(card => totalRequirement(card) >= 7));
   const opening = [easy.shift(), easy.shift(), medium.shift(), medium.shift(), hard.shift()];
   return [...shuffle(opening), ...shuffle([...easy, ...medium, ...hard])];
 }
@@ -297,10 +301,12 @@ function updateBriefDialog() {
   const card = state.milestones[state.activeBrief];
   if (!card) return;
   const totals = selectedTotals();
+  const requirements = effectiveRequirements(card);
+  const requirementTotal = Object.values(requirements).reduce((sum, value) => sum + value, 0);
   const reward = `$${card.reward.cash} cash`;
   $("#briefContent").innerHTML = `
-    <header class="brief-header" style="background:${card.color}"><p class="eyebrow">${card.kind} brief · +${card.points} reputation</p><h2>${card.name}</h2><p>Reward: ${reward}</p></header>
-    <div class="brief-progress"><h3>Your engine vs. the brief</h3>${Object.entries(effectiveRequirements(card)).map(([stat, required]) => {
+    <header class="brief-header" style="background:${card.color}"><p class="eyebrow">${card.kind} brief · ${requirementTotal} total skill · +${card.points} reputation</p><h2>${card.name}</h2><p>Reward: ${reward}</p></header>
+    <div class="brief-progress"><h3>Your engine vs. the brief</h3>${Object.entries(requirements).map(([stat, required]) => {
       const have = totals[stat] || 0;
       return `<div class="requirement-line" style="--stat-color:${STAT_META[stat].color}"><span>${skillIcon(stat)} ${STAT_META[stat].label}</span><div class="bar"><i style="width:${Math.min(100, have / required * 100)}%"></i></div><strong>${have} / ${required}</strong></div>`;
     }).join("")}</div>
@@ -412,9 +418,23 @@ function triggerEndgameIfNeeded(player) {
   return true;
 }
 
+function runSoloMonkeyTurn() {
+  if (Math.floor(Math.random() * 5) === 0) {
+    const index = Math.floor(Math.random() * state.milestones.length);
+    const [card] = state.milestones.splice(index, 1);
+    replenish(state.milestones, state.milestoneDraw, milestoneDeck);
+    return { message: `Chaos Monkey snatched the ${card.name} brief` };
+  }
+  const index = Math.floor(Math.random() * state.market.length);
+  const [card] = state.market.splice(index, 1);
+  const chaos = replenishTalent();
+  return { message: `Chaos Monkey took ${card.name} from the market`, chaos };
+}
+
 function advanceTurn(message, justTriggeredEndgame = false) {
   if (state.endgame && !justTriggeredEndgame) state.endgame.turnsRemaining -= 1;
   const gameEnded = state.endgame?.turnsRemaining === 0;
+  const monkeyTurn = !gameEnded && state.players.length === 1 ? runSoloMonkeyTurn() : null;
   state.turn += 1;
   if (!gameEnded) {
     state.currentPlayerIndex = (state.currentPlayerIndex + 1) % state.players.length;
@@ -422,12 +442,14 @@ function advanceTurn(message, justTriggeredEndgame = false) {
   }
   render();
   commitNetworkState();
+  if (monkeyTurn?.chaos) showChaos(monkeyTurn.chaos);
   if (gameEnded) {
     notify(`${message} · Final scores are in`);
     setTimeout(showFinalResults, 450);
   } else {
     const finalNotice = justTriggeredEndgame ? " · final stretch begins" : "";
-    notify(`${message}${finalNotice} · Next: ${currentPlayer().name}`);
+    const monkeyNotice = monkeyTurn ? ` · ${monkeyTurn.message}` : ` · Next: ${currentPlayer().name}`;
+    notify(`${message}${finalNotice}${monkeyNotice}`);
   }
 }
 
