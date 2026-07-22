@@ -86,10 +86,18 @@ const cardArtwork = (stats) => {
     <div class="art-support">${supporting.map(stat => `<span style="--art-color:${STAT_META[stat].color}">${skillIcon(stat)}</span>`).join("")}</div>
   </div>`;
 };
-const statGrid = (stats, compact = false) => `<div class="stat-grid${compact ? " compact" : ""}">${STAT_ORDER.map(key => {
+const statGrid = (stats, compact = false, hideEmpty = false) => `<div class="stat-grid${compact ? " compact" : ""}">${STAT_ORDER.filter(key => !hideEmpty || stats[key]).map(key => {
   const value = stats[key] || 0;
   return `<span class="stat-slot ${value ? "active" : "empty"}" style="--stat-color:${STAT_META[key].color}" title="${STAT_META[key].label}: ${value}">${skillIcon(key)}<em>${STAT_META[key].label}</em><strong>${value || "—"}</strong></span>`;
 }).join("")}</div>`;
+const marketCardFooter = (stats) => {
+  const activeStats = STAT_ORDER.filter(stat => stats[stat]);
+  return `<div class="market-card-footer" role="list" aria-label="Card attributes">${activeStats.map(stat => {
+    const value = stats[stat];
+    const label = `${STAT_META[stat].label}: ${value}`;
+    return `<span class="market-card-stat" role="listitem" style="--stat-color:${STAT_META[stat].color}" title="${label}" aria-label="${label}">${skillIcon(stat)}<strong>${value}</strong></span>`;
+  }).join("")}</div>`;
+};
 
 const currentPlayer = () => state.players[state.currentPlayerIndex];
 const localPlayer = () => network.mode === "online" ? state.players.find(player => player.clientId === network.clientId) : currentPlayer();
@@ -161,9 +169,10 @@ function renderMarket() {
   $("#marketRow").innerHTML = state.market.map((card, index) => `
     <button class="game-card market-card" data-market="${index}" aria-label="Draft ${card.name}" ${!isMyTurn() || state.pendingDiscards.length ? "disabled" : ""}>
       <div class="card-top" style="background:${card.color}">
-        <p class="card-kind">${card.kind}</p><span class="card-number">0${index + 1}</span><h3>${card.name}</h3>${cardArtwork(card.stats)}
+        <p class="card-kind">${card.kind}</p><span class="card-number">0${index + 1}</span><h3>${card.name}</h3>
       </div>
-      <div class="card-body">${statGrid(card.stats)}<div class="card-economy ${card.type}">${card.type === "tool" ? "Permanent +1 · no upkeep" : "$1 Upkeep each turn"}</div></div>
+      <div class="card-body"><div class="card-economy ${card.type}">${card.type === "tool" ? "Permanent +1 · no upkeep" : "$1 Upkeep each turn"}</div></div>
+      ${marketCardFooter(card.stats)}
     </button>`).join("");
   document.querySelectorAll("[data-market]").forEach(button => button.addEventListener("click", () => requestDraft(Number(button.dataset.market))));
 }
@@ -174,8 +183,8 @@ function renderMilestones() {
     const requirementTotal = Object.values(requirements).reduce((sum, value) => sum + value, 0);
     const reward = card.reward.cash ? `$${card.reward.cash} cash` : `+1 permanent ${STAT_META[card.reward.permanent].label}`;
     return `<button class="game-card milestone-card" data-milestone="${index}" aria-label="Open ${card.kind} ${card.name}, ${requirementTotal} total skill" ${!isMyTurn() || state.pendingDiscards.length ? "disabled" : ""}>
-      <div class="card-top" style="background:${card.color}"><p class="card-kind">${card.kind} · ${requirementTotal} skill</p><span class="card-number">B${String(index + 1).padStart(2, "0")}</span><h3>${card.name}</h3>${cardArtwork(effectiveRequirements(card))}</div>
-      <div class="card-body">${statGrid(effectiveRequirements(card))}
+      <div class="card-top" style="background:${card.color}"><p class="card-kind">${card.kind} · ${requirementTotal} skill</p><span class="card-number">B${String(index + 1).padStart(2, "0")}</span><h3>${card.name}</h3>${cardArtwork(requirements)}</div>
+      <div class="card-body">${statGrid(requirements, false, true)}
       <div class="reward"><p>REWARD<strong>${reward}</strong></p><span class="points">+${card.points}</span></div></div>
     </button>`;
   }).join("");

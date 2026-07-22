@@ -41,6 +41,8 @@ On Shopify Quick, successful games against the monkey are recorded in `quick.db`
 
 The complete deck list is available as [`card-inventory.csv`](card-inventory.csv), including card types, skill values, Upkeep, Cash rewards, Reputation rewards, and event effects.
 
+A sample illustrated card is available as [SVG](art/launch-lab-card.svg) and [PNG](art/launch-lab-card.png).
+
 ## Online play
 
 The Quick deployment uses `/client/quick.js` and `quick.db` subscriptions for live cross-device games. The implementation is plain HTML, CSS, and JavaScript with no build step.
