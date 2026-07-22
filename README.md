@@ -19,7 +19,7 @@ Then open [http://localhost:4174](http://localhost:4174).
 - At the start of a turn, pay the full Upkeep or discard Agency and Staff cards until the remaining cost is affordable.
 - A loan provides **$5 cash** and creates **$8 debt**. Repaying $8 uses a turn.
 - Cards form a persistent engine and are **not discarded** when completing Orders or Milestones.
-- Five open **Orders and Milestones** are available. Each requires **3–8 total skill points**, split across its listed skills.
+- Five open **Orders and Milestones** are available. Each requires **3–8 total skill points**, split across its listed skills. Higher-skill cards pay a larger Cash premium.
 - Reach **20 reputation with no outstanding loans** to win.
 - In multiplayer, reaching the goal triggers the final stretch: finish the current round and play one final round. The eligible company with the most reputation wins.
 
